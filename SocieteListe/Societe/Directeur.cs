@@ -4,23 +4,51 @@ using System.Text;
 
 namespace SocieteListe.Societe
 {
-    class Directeur
-    {
-        private string v1;
-        private string v2;
-        private int v3;
-        private int v4;
-        private string v5;
-        private string v6;
-
-        public Directeur(string v1, string v2, int v3, int v4, string v5, string v6)
+        class Directeur : Chef
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-            this.v5 = v5;
-            this.v6 = v6;
+            private string _societe;
+            public string Societe   // salaire proprieté
+            {
+
+                get => _societe;
+                set => _societe = value;
+            }
+
+            public Directeur(string nom, string prenom, int age, float salaire, string service, string societe) : base(nom, prenom, age, salaire, service)
+            {
+                Nom = nom;
+                Prenom = prenom;
+                Age = age;
+                Salaire = salaire;
+                Service = service;
+                Societe = societe;
+            }
+
+
+
+            public override string ToString()
+            {
+                return "Le nom du chef est : " + Nom + Environment.NewLine + "son prénom est : " + Prenom + Environment.NewLine +
+                        "son age est :" + Age + Environment.NewLine + "son salaire est de : " + Salaire + Environment.NewLine +
+                        "son service est :" + Service + Environment.NewLine + "sa société est :" + Societe;
+            }
+
+            public void Afficher()
+            {
+                Console.WriteLine("Nom : " + Nom);
+                Console.WriteLine("Prenom : " + Prenom);
+                if (Age != 0)
+                {
+                    Console.WriteLine("Age : " + Age);
+                }
+                Console.WriteLine("Salaire : " + Salaire);
+                Console.WriteLine("Service :" + Service);
+                Console.WriteLine("Société : " + Societe);
+            }
+
+
+
+
+
         }
-    }
-}
+ }
